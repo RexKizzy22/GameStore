@@ -1,0 +1,3 @@
+@hostname = http://localhost:5130/genres
+
+GET {{hostname}}

@@ -1,0 +1,41 @@
+@hostname = http://localhost:5130/games
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImVtbWFudWVsIiwic3ViIjoiZW1tYW51ZWwiLCJqdGkiOiI0ZWRiY2QwMCIsInJvbGUiOiJhZG1pbiIsImF1ZCI6WyJodHRwOi8vbG9jYWxob3N0OjI4NzIyIiwiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMzUiLCJodHRwOi8vbG9jYWxob3N0OjUxMzAiLCJodHRwczovL2xvY2FsaG9zdDo3MDUwIl0sIm5iZiI6MTcxMTg3NTIzMywiZXhwIjoxNzE5NzM3NjMzLCJpYXQiOjE3MTE4NzUyMzQsImlzcyI6ImRvdG5ldC11c2VyLWp3dHMifQ.qzDsNw2MNGE0EumwiX1Sln8Y7dstQBiFRBV1FT1UeXg
+
+GET {{hostname}}
+Authorization: Bearer {{access_token}}
+
+### 
+GET {{hostname}}/3
+Authorization: Bearer {{access_token}}
+
+###
+POST {{hostname}}/create
+Content-Type: application/json
+Authorization: Bearer {{access_token}}
+
+{
+  "name": "Road Rash",
+  "price": 18.3,
+  "genreId": 3,
+  "releaseDate": "2020-12-02"
+}
+
+###
+PUT {{hostname}}/3/update
+Content-Type: application/json
+Authorization: Bearer {{access_token}}
+
+{
+  "name": "PES 2024",
+  "price": 22.1,
+  "genreId": 3,
+  "releaseDate": "1989-03-08"
+}
+
+###
+DELETE {{hostname}}/4
+Authorization: Bearer {{access_token}}
+
+
+
+
