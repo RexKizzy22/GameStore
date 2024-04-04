@@ -5,15 +5,12 @@ using GameStore.Api.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connString = builder.Configuration.GetConnectionString("GameStore");
-
-builder.Services.AddSqlite<GameStoreContext>(connString);
+builder.Services.AddSqlite<GameStoreContext>(builder.Configuration.GetConnectionString("GameStore"));
 builder.Services.AddScoped<GameStoreRepository>();
 
 builder.Services.AddHttpLogging(o => {});
 
 builder.Services.AddAuthentication().AddJwtBearer();
-builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
 // Structured Logging Set Up
@@ -28,8 +25,8 @@ builder.Logging.AddJsonConsole(
 
 var app = builder.Build();
 
+// Exception Middleware
 // app.UseMiddleware<GlobalExceptionMiddleware>();
-
 app.UseExceptionHandler(exceptionHanderApp => exceptionHanderApp.ConfigureExceptionHandler());
 
 app.UseHttpLogging();

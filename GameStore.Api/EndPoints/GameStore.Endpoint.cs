@@ -11,7 +11,7 @@ public static class Endpoints {
 
     public static RouteGroupBuilder MapGameStoreEndpoints(this WebApplication app) {
 
-        using var scope = app.Services.CreateScope();
+        var scope = app.Services.CreateScope();
         var repo = scope.ServiceProvider.GetRequiredService<GameStoreRepository>();
 
         var group = app.MapGroup("games")

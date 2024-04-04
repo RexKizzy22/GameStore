@@ -5,7 +5,7 @@ GET {{hostname}}
 Authorization: Bearer {{access_token}}
 
 ### 
-GET {{hostname}}/3
+GET {{hostname}}/7
 Authorization: Bearer {{access_token}}
 
 ###
@@ -33,7 +33,7 @@ Authorization: Bearer {{access_token}}
 }
 
 ###
-DELETE {{hostname}}/4
+DELETE {{hostname}}/7
 Authorization: Bearer {{access_token}}
 
 
