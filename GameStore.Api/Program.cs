@@ -10,6 +10,8 @@ builder.Services.AddScoped<GameStoreRepository>();
 
 builder.Services.AddHttpLogging(o => {});
 
+builder.Services.AddCors();
+
 builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddAuthorization();
 
@@ -24,6 +26,11 @@ builder.Logging.AddJsonConsole(
 );
 
 var app = builder.Build();
+
+app.UseCors(options =>
+{
+    options.WithOrigins("*");
+});
 
 // Exception Middleware
 // app.UseMiddleware<GlobalExceptionMiddleware>();
